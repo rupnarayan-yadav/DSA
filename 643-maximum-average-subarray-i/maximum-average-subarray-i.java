@@ -5,9 +5,9 @@ class Solution {
             windowsum+=nums[i];
         }
         int maxsum=windowsum;
-        for(int i=1;i<=nums.length-k;i++){
-            windowsum-=nums[i-1];
-            windowsum+=nums[i+k-1];
+        for(int i=k;i<nums.length;i++){
+            windowsum+=nums[i];
+            windowsum-=nums[i-k];
             maxsum=Math.max(maxsum,windowsum);
         }
         return (double) maxsum/k;
